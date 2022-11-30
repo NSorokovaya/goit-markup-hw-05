@@ -11,6 +11,7 @@
   --footer-link-color: rgba(255, 255, 255, 0.6);
   --icon-main-color:#afb1b8;
   --icon-footer-background-color:rgba(255, 255, 255, 0.1);
+  --animatiom-btn: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -92,19 +93,33 @@ img {
   margin-right: 50px;
 }
 .site-nav_link {
+  position: relative;
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
   color: var(--additional-text-color);
   text-decoration: none;
+  transition: var(--animatiom-btn);
+  
 }
 .site-nav_link:hover,
 .site-nav_link:focus {
   color: var(--accent);
 }
-.site-nav_link.current {
-  color: var(--accent);
+
+.site-nav_link.current::after {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent);
+  border-radius: 2px;
 }
+
+
 /*auth-nav*/
 .auth-nav_contact {
   display: flex;
@@ -132,6 +147,7 @@ img {
   letter-spacing: 0.02em;
   text-decoration: none;
   gap: 10px;
+  transition: var(--animatiom-btn)
 }
 
 .auth-nav_link:hover, 
@@ -247,6 +263,32 @@ img {
   gap: 30px;
 }
 
+.images_thumb{
+  position: relative;  
+  display: flex;
+  justify-content: center;
+}
+
+.images_font{
+  position: absolute;
+  content: "";
+  width: 370px;
+  height: 70px;
+  bottom: 0;
+  background: rgba(47, 48, 58, 0.8);
+  }
+
+.images_text{
+  position: absolute;
+  padding: 27px;
+  font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
 /*team*/
 .team {
   background-color: var(--second-background-color);
@@ -313,7 +355,8 @@ img {
   border-radius: 50%;
   width: 44px;
   height: 44px;
-  fill: var(--icon-main-color)
+  fill: var(--icon-main-color);
+  transition: var(--animatiom-btn);
 }
 .social-link:hover,
 .social-link:focus{
@@ -350,6 +393,7 @@ img {
     color: var(--icon-main-color);
     border: 1px solid #AFB1B8;
     border-radius: 4px;
+    transition: var(--animatiom-btn);
 }
 .clients-link{
  fill: currentColor;
@@ -399,6 +443,7 @@ img {
   line-height: 1.71;
   font-style: normal;
   text-decoration: none;
+  transition: var(--animatiom-btn);
 }
 .direction-link:hover,
 .direction-link:focus {
@@ -436,6 +481,7 @@ img {
   width: 44px;
   height: 44px;
   fill: var(--white);
+  transition: var(--animatiom-btn);
 }
 
 .footer__social-link:hover,
@@ -454,6 +500,7 @@ img {
   cursor: pointer;
   border-radius: 4px;
   border: transparent;
+  transition: var(--animatiom-btn);
 }
 
 .options {
@@ -477,6 +524,7 @@ img {
 }
 .card-list_item {
   justify-content: space-between;
+  transition: var(--animatiom-btn);
 }
 .card-list_item:nth-child(3n) {
   margin-right: 0;
